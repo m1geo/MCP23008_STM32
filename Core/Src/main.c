@@ -30,20 +30,20 @@ int main(void)
   MX_I2C2_Init();
   
   if (MCP23008_Init(&hi2c2, &MCP23hdev_A, MCP23008_ADDR_A) != HAL_OK){
-    HAL_Delay(100);printf("Can't initialise MCP23008_A!\r\n");
+    printf("Can't initialise MCP23008_A!\r\n");
   }
   MCP23008_SetDirection(&MCP23hdev_A, 0x7F); // 1's are input.
 
   if (MCP23008_Init(&hi2c2, &MCP23hdev_B, MCP23008_ADDR_B) != HAL_OK){
-    HAL_Delay(100);printf("Can't initialise MCP23008_B!\r\n");
+    printf("Can't initialise MCP23008_B!\r\n");
   }
   MCP23008_SetDirection(&MCP23hdev_B, 0x00); // 0's are output.
 
   while (1)
   {
-    HAL_Delay(100);temp_var = MCP23008_ReadGPIO(&MCP23hdev_A);
+    temp_var = MCP23008_ReadGPIO(&MCP23hdev_A);
     HAL_Delay(100);
     MCP23008_WriteGPIO(&MCP23hdev_B, temp_var);
-    HAL_Delay(100);HAL_Delay(100);
+    HAL_Delay(100);
   }
 }
