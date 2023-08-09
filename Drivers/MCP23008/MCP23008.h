@@ -32,8 +32,8 @@
 #define MCP23008_OLAT       0x0A    //   NOT USED output latch          P 20
 
 typedef struct {
-	I2C_HandleTypeDef *hi2c;
-	uint16_t addr;
+    I2C_HandleTypeDef *hi2c;
+    uint16_t addr;
 } MCP23008_HandleTypeDef;
 
 // Function prototypes
